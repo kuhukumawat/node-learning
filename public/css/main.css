@@ -41,7 +41,9 @@ nav ul li a {
 nav ul li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
-
+a.active{
+  color: #0f0f0f ;
+}
 main {
   text-align: center;
   padding: 50px 20px;

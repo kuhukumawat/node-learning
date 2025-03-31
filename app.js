@@ -106,7 +106,7 @@ app.set('views', 'views')
 app.use(shopRoute)
 app.use(adminRoute.routes)
 app.use((req, res, next) => {
-    res.status(404).render('not-found',{notFoundTtitle:'404 Not Found'});
+    res.status(404).render('not-found',{notFoundTitle:'404 Not Found'});
 });
 
 

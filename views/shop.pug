@@ -11,9 +11,9 @@ html(lang="en")
             nav
                 ul
                     li 
-                        a(href="/") Shop
+                        a(href="/" class=path==="/shop"?'active':'') Shop
                     li 
-                        a(href="/add-product") Add Product
+                        a(href="/add-product" ) Add Product
 
 main
     if prod.length > 0
