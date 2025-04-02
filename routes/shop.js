@@ -19,7 +19,7 @@ const adminData=require('./admin')
 router.get('/',(req, res) => {
     const products=adminData.product
     console.log('shopjs',products);
-    res.render('shop',{prod:products,docTitle:'Shop',path:'/shop',hasProduct:products.length>0})
+    res.render('shop',{prod:products,pageTitle:'Shop',path:'/shop',hasProduct:products.length>0})
   
   });
   module.exports=router

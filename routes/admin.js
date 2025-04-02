@@ -12,7 +12,7 @@ const product=[]
 //   });
 router.get("/add-product", (req, res) => {
     // console.log(`Request received`);
-    res.render('add-product',{productTitle:'Add Product',path:'/add-product'})
+    res.render('add-product',{pageTitle:'Add Product',path:'/add-product'})
   });
   router.post("/add-product", (req, res) => {
     console.log(req.body);

@@ -92,6 +92,11 @@ const adminRoute=require('./routes/admin')
 const shopRoute=require('./routes/shop')
 const path=require('path')
 const rootDir=require('./util/path')
+const expressHbs=require('express-handlebars')
+
+app.listen(3000, () => {
+    console.log("Server is running on http://localhost:3000");
+});
 
 // Middleware function (logs every request)
 // app.use((req, res, next) => {
@@ -100,14 +105,27 @@ const rootDir=require('./util/path')
 // });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(rootDir,'public')))
-app.set('view engine', 'pug');
-app.set('views', 'views')
+// app.engine('hbs',expressHbs())
+// app.set('view engine', 'hbs');
+// app.set('views', 'views')
 
+
+
+//pug    
+
+
+// app.set('view engine', 'pug');
+// app.set('views', 'views')
+
+
+//ejs
+app.set('view engine', 'ejs');
+app.set('views', 'views')
 app.use(shopRoute)
 app.use(adminRoute.routes)
 app.use((req, res, next) => {
-    res.status(404).render('not-found',{notFoundTitle:'404 Not Found'});
+    res.status(404).render('not-found',{pageTitle:'404 Not Found'});
 });
 
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+// app.listen(3000, () => console.log("Server running on port 3000"));
