@@ -1,25 +1,25 @@
-const express = require('express');
-const router = express.Router();
 const path = require('path');
-const rootDir=require('../util/path')
-const adminData=require('./admin')
 
+const express = require('express');
 
-//will cause issue if we will take use here it will not go futher if in we will use shop routre firstr
-// router.use("/", (req, res) => {
-//     console.log(req.body);
-//     res.send("<h1>Hello From Express</h1>");
-//   });
+const shopController = require('../controllers/shop');
 
-//   module.exports=router
-// router.get('/',(req, res) => {
-//     console.log('shopjs',adminData.product);
-//     res.sendFile(path.join(rootDir, "views", "shop.html"))
-//   });
-router.get('/',(req, res) => {
-    const products=adminData.product
-    console.log('shopjs',products);
-    res.render('shop',{prod:products,pageTitle:'Shop',path:'/shop',hasProduct:products.length>0})
-  
-  });
-  module.exports=router
+const router = express.Router();
+
+router.get('/', shopController.getIndex);
+
+router.get('/products', shopController.getProducts);
+
+router.get('/products/:productId', shopController.getProduct);
+
+router.get('/cart', shopController.getCart);
+
+router.post('/cart', shopController.postCart);
+
+router.post('/cart-delete-item', shopController.postCartDeleteProduct);
+
+router.get('/orders', shopController.getOrders);
+
+router.get('/checkout', shopController.getCheckout);
+
+module.exports = router;
